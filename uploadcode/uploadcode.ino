@@ -6,33 +6,17 @@
 #define txPin 7
 
 SoftwareSerial mySerial(rxPin, txPin); // RX, TX
-char Char, inputByte;
+char inputByte;
 
 void setup() {
   pinMode(13,OUTPUT);
   digitalWrite(13,LOW);
-  
-  Serial.begin(9600);   
-  Serial.println("Goodnight moon!");
 
   mySerial.begin(9600);
-  mySerial.println("Hello, world?");
+  mySerial.print("Hello, world?;");
 }
 
 void loop(){
-  while(Serial.available()>0){
-    Char = Serial.read();
-    Serial.print(Char);
-
-    if (inputByte=='1'){
-      digitalWrite(13,HIGH);
-      }
-  
-    else if (inputByte=='0'){
-      digitalWrite(13,LOW);
-      } 
-  }
-
    while(mySerial.available()>0){
     inputByte = mySerial.read();
     
@@ -48,5 +32,8 @@ void loop(){
       digitalWrite(13,LOW);
       mySerial.print("Turned OFF;");
       } 
+
+    else
+      mySerial.print("Enter either 1 or 0;");
   }
 }
