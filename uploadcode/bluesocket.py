@@ -1,7 +1,8 @@
     
 import psutil, time, socket
 
-serverMACAddress = 'FC:A8:9A:00:21:16'  # Put your HC-05 address here
+# serverMACAddress = 'FC:A8:9A:00:21:16'  # Put your HC-05 address here
+serverMACAddress = '00:21:09:00:55:71'  # Put your HC-05 address here
 port = 1                                # Match the setting on the HC-05 module
 
 s = socket.socket(socket.AF_BLUETOOTH, socket.SOCK_STREAM, socket.BTPROTO_RFCOMM)
@@ -29,6 +30,9 @@ print(status)
 
 count = 0
 data = []
+
+text = '1111111111111111'
+s.send(bytes(text, 'UTF-8'))
 while True:
 
     battery = psutil.sensors_battery()

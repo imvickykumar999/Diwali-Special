@@ -31,8 +31,10 @@ if minbat == '':
     minbat = percent-1
 
 Arduino_Serial = serial.Serial(com, 9600)
-while True:
+input_data = '1'.encode()
+Arduino_Serial.write(input_data)
 
+while True:
     battery = psutil.sensors_battery()
     percent = battery[0]
 
