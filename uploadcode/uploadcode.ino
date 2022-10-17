@@ -1,6 +1,5 @@
 
 //https://stackoverflow.com/a/19720372/11493297
-
 #include <SoftwareSerial.h>
 
 #define rxPin 8
@@ -10,13 +9,14 @@ SoftwareSerial mySerial(rxPin, txPin); // RX, TX
 char Char, inputByte;
 
 void setup() {
+  pinMode(13,OUTPUT);
+  digitalWrite(13,LOW);
+  
   Serial.begin(9600);   
   Serial.println("Goodnight moon!");
 
   mySerial.begin(9600);
   mySerial.println("Hello, world?");
-
-  digitalWrite(13,LOW);
 }
 
 void loop(){
@@ -34,16 +34,19 @@ void loop(){
   }
 
    while(mySerial.available()>0){
-
     inputByte = mySerial.read();
-    mySerial.println(inputByte, ";");
+    
+//    mySerial.print(inputByte);
+//    mySerial.print(";");
 
     if (inputByte=='1'){
       digitalWrite(13,HIGH);
+      mySerial.print("Turned ON;");
       }
   
     else if (inputByte=='0'){
       digitalWrite(13,LOW);
+      mySerial.print("Turned OFF;");
       } 
   }
 }
