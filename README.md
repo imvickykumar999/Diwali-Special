@@ -1,6 +1,6 @@
 # Diwali-Special
 
-# Publishing on Play Store : [YouTube Tutorial](https://www.youtube.com/watch?v=5GHT4QtotE4)
+### Publishing on Play Store : [YouTube Tutorial](https://www.youtube.com/watch?v=5GHT4QtotE4)
 
 <table>
    <tr>
